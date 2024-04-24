@@ -9,7 +9,7 @@ class GestorPedido:
             self.__list = self.cargarObjeto()
 
     def cargarObjeto():
-        archivo = open('./datosPedidos.csv')
+        archivo = open('/datosPedidos.csv')
         reader = csv.reader(archivo, delimiter=";")
 
         for fila in reader:

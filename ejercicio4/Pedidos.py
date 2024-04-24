@@ -1,4 +1,3 @@
-import csv
 class Pedido:
     __patente = str
     __idPedido = int

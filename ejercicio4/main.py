@@ -37,8 +37,9 @@ if __name__ == "__main__":
 
     gestorMotos = GestorMotos()
     gestorMotos.cargarObjeto()
+    gestorMotos.mostrar()
     
-    while True:
+    """ while True:
         print("1")
         print("2")
         print("3")
@@ -56,7 +57,7 @@ if __name__ == "__main__":
             print("opcion4")
         if opcion == "5":
             print("Saliendoooo!!")
-            break
+            break """
         
 
  

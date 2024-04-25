@@ -14,20 +14,18 @@ class GestorPedido:
         reader = csv.reader(archivo, delimiter=";")
 
         for fila in reader:
-            pedido = Pedido(fila[0],fila[1],fila[2],fila[3],fila[4],fila[5])
+            pedido = Pedido(fila[0],fila[1],fila[2],int(fila[3]),int(fila[4]),float(fila[5]))
             self.__list.append(pedido) 
     
 
-    def mostrar(self):
+    def mostrarObjeto(self):
         for i in range(len(self.__list)):
             print(self.__list[i])
 
 
     def asignarPedido(self, patente, idPedido, comida, tiempoEstimado, tiempoReal, precio):
-        
-        with open(path.dirname(__file__) + '/datosPedidos.csv', 'a', newline='') as archivo:
-            writer = csv.writer(archivo, delimiter=";")
-            writer.writerow([patente, idPedido, comida, tiempoEstimado, tiempoReal, precio])
+        pedido = Pedido(patente,idPedido,comida,tiempoEstimado,tiempoReal,precio)
+        self.__list.append(pedido)
         print("Pedido asignado")
 
     def modificarTiempoReal(self, patente, idPedido, tiempoReal):
@@ -49,4 +47,26 @@ class GestorPedido:
             else:
                 indice+=1
         return valorDeRetorno
+    
+    def tiempoPromedioReal(self, patente):
+        suma = 0
+        cantidad = 0
+        for i in range(len(self.__list)):
+            if self.__list[i].getPatente() == patente:
+                suma += int(self.__list[i].getTiempoReal())
+                cantidad += 1
+        return suma/cantidad
+        
+    def generarListado(self):
+        for i in range(len(self.__list)):
+            print(f'Patente de Moto: {self.__list[i].getPatente()}')
+            print(f'Conductor: {self.__list[i].getPatente()}')
+            print(f'Identificador de pedido: {self.__list[i].getIdPedido()}')
+            print(f'Tiempo estimado: {self.__list[i].getTiempoEstimado()}')
+            print(f'Tiempo real: {self.__list[i].getTiempoReal()}')
+            print(f'Precio: {self.__list[i].getPrecio()}')
+            print(f'Total: {self.__list[i].getPrecio()}')
+            print(f'Comisión: {float(self.__list[i].getPrecio()) * 0.2}')
+            print("----------------------------------------------------")
+            
         

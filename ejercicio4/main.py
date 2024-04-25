@@ -66,14 +66,22 @@ if __name__ == "__main__":
             patente = input("Ingrese la patente de la moto \n")
             idPedido = input("Ingrese el id del pedido \n")
             tiempoReal = input("Ingrese el tiempo real \n")
+
             gestorPedidos.modificarTiempoReal(patente, idPedido, tiempoReal)
         if opcion == "3":
             """mostrar datos del conductor y tiempo promedio real de entrega de los pedidos que hizo"""            
             patente = input("Ingrese la patente de la moto \n")
+            indice= gestorMotos.buscarMoto(patente)
+            if indice != None:
+                print("Datos del conductor: ")
+                print("Nombre: {}".format(indice.getNombre()))
+                print("Apellido: {}".format(indice.getApellido()))
+
+                print("Tiempo promedio real de entrega de los pedidos que hizo: {}".format(gestorPedidos.tiempoPromedioReal(patente)))
             
         if opcion == "4":
-            print("opcion4")
-
+            gestorPedidos.generarListado()
+           
         if opcion == "5":
             print("Saliendoooo!!")
             break

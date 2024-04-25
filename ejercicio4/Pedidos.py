@@ -16,4 +16,21 @@ class Pedido:
     def __str__(self):
         return f'Patente: {self.__patente}, ID Pedido: {self.__idPedido}, Comidas: {self.__comidas}, Tiempo Estimado: {self.__tiempoEstimado}, Tiempo Real: {self.__tiempoReal}, Precio: {self.__precio}'
    
+    def setTiempoReal(self, tiempoReal):        
+        self.__tiempoReal = tiempoReal
 
+    def getIdPedido(self):
+        return self.__idPedido
+    def getPrecio(self):
+        return self.__precio
+    def getTiempoReal(self):
+        return self.__tiempoReal
+    def getTiempoEstimado(self):
+        return self.__tiempoEstimado
+    def getComidas(self):
+        return self.__comidas
+    def getPatente(self):
+        return self.__patente
+    def getTiempoReal(self):
+        return self.__tiempoReal
+    

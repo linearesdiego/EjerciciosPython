@@ -19,15 +19,12 @@ class Moto:
     def getNombre(self):
         return self.__nombre    
     def getApellido(self): 
-        return self.__apellido
-    def getTiempoReal(self):
-        return self.__tiempoReal    
+        return self.__apellido   
     def getKilometraje(self):
         return self.__kilometraje
     def getMarca(self):
         return self.__marca
-    def setTiempoReal(self, tiempoReal):        
-        self.__tiempoReal = tiempoReal
+    
     def setKilometraje(self, kilometraje):
         self.__kilometraje = kilometraje
     def setNombre(self, nombre):

@@ -19,6 +19,8 @@ class GestorMotos:
         for i in range(len(self.__list)):
             print(self.__list[i])
 
+   
+
     def buscarMoto(self, patente):
         indice=0
         valorDeRetorno = None

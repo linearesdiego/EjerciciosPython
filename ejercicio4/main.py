@@ -32,13 +32,12 @@
 (__lt__). """
 from GestorMotos import GestorMotos
 from GestorPedidos import GestorPedido
-
-if __name__ == "__main__":
-
+def test():
     gestorMotos = GestorMotos()
     gestorPedidos = GestorPedido()
     gestorMotos.cargarObjeto()
     gestorPedidos.cargarObjeto()
+    
     while True:
         print("1) Cargar nuevos pedidos")
         print("2) Modificar tiempo real de entrega de un pedido")
@@ -81,10 +80,15 @@ if __name__ == "__main__":
             
         if opcion == "4":
             gestorPedidos.generarListado()
-           
+        
         if opcion == "5":
             print("Saliendoooo!!")
             break
+if __name__ == "__main__":
+
+    test()
+
+    
         
 
  

@@ -53,7 +53,7 @@ class GestorPedido:
         cantidad = 0
         for i in range(len(self.__list)):
             if self.__list[i].getPatente() == patente:
-                suma += int(self.__list[i].getTiempoReal())
+                suma += self.__list[i].getTiempoReal()
                 cantidad += 1
         return suma/cantidad
         
@@ -68,5 +68,9 @@ class GestorPedido:
             print(f'Total: {self.__list[i].getPrecio()}')
             print(f'Comisión: {float(self.__list[i].getPrecio()) * 0.2}')
             print("----------------------------------------------------")
-            
+    
+        """ Ordenar de menor a mayor el Gestor de pedidos por número de patente, de modo que permita resolver eficientemente las búsquedas. Pare ello debe sobrecargar el operador < """
+    def ordenar(self):
+        self.__list.sort()
+        print("Lista ordenada")
         

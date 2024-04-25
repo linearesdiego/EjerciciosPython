@@ -31,33 +31,50 @@
     permita resolver eficientemente las búsquedas. Pare ello debe sobrecargar el operador <
 (__lt__). """
 from GestorMotos import GestorMotos
-
+from GestorPedidos import GestorPedido
 
 if __name__ == "__main__":
 
     gestorMotos = GestorMotos()
+    gestorPedidos = GestorPedido()
     gestorMotos.cargarObjeto()
-    gestorMotos.mostrar()
-    
-    """ while True:
-        print("1")
-        print("2")
-        print("3")
-        print("4")
+    gestorPedidos.cargarObjeto()
+    while True:
+        print("1) Cargar nuevos pedidos")
+        print("2) Modificar tiempo real de entrega de un pedido")
+        print("3) mostrar datos del conductor y tiempo promedio real de entrega de los pedidos que hizo")
+        print("4) Generar listado para el pago de comisiones a los conductores de las motos")
 
-        opcion= input("Seleccione una opcion")
+        opcion= input("Seleccione una opcion \n")
 
         if opcion == "1":
-            print("opcion1")
+            patente = input("Ingrese la patente de la moto \n")
+            idPedido = input("Ingrese el id del pedido \n")
+            comidas = input("Ingrese las comidas \n")
+            tiempoEstimado = input("Ingrese el tiempo estimado \n")
+            tiempoReal = input("Ingrese el tiempo real \n")
+            precio = input("Ingrese el precio \n")
+
+            indice = gestorMotos.buscarMoto(patente)
+           
+            if indice != None:
+                gestorPedidos.asignarPedido(patente, idPedido, comidas, tiempoEstimado, tiempoReal, precio)
+            else:
+                print("No se encontro la moto con la patente ingresada".format(patente))
         if opcion == "2":
-            print("opcion2")
+            """  Leer por teclado número de patente, identificador de pedido, y tiempo real de entrega,
+    modificar en el Gestor de Pedidos, el tiempo real de entrega para ese pedido. """
+            patente = input("Ingrese la patente de la moto \n")
+            idPedido = input("Ingrese el id del pedido \n")
+            tiempoReal = input("Ingrese el tiempo real \n")
+            gestorPedidos.modificarTiempoReal(patente, idPedido, tiempoReal)
         if opcion == "3":
             print("opcion3")
         if opcion == "4":
             print("opcion4")
         if opcion == "5":
             print("Saliendoooo!!")
-            break """
+            break
         
 
  

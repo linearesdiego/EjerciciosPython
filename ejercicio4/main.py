@@ -62,16 +62,18 @@ if __name__ == "__main__":
             else:
                 print("No se encontro la moto con la patente ingresada".format(patente))
         if opcion == "2":
-            """  Leer por teclado número de patente, identificador de pedido, y tiempo real de entrega,
-    modificar en el Gestor de Pedidos, el tiempo real de entrega para ese pedido. """
+            
             patente = input("Ingrese la patente de la moto \n")
             idPedido = input("Ingrese el id del pedido \n")
             tiempoReal = input("Ingrese el tiempo real \n")
             gestorPedidos.modificarTiempoReal(patente, idPedido, tiempoReal)
         if opcion == "3":
-            print("opcion3")
+            """mostrar datos del conductor y tiempo promedio real de entrega de los pedidos que hizo"""            
+            patente = input("Ingrese la patente de la moto \n")
+            
         if opcion == "4":
             print("opcion4")
+
         if opcion == "5":
             print("Saliendoooo!!")
             break

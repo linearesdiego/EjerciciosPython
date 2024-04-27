@@ -67,15 +67,11 @@ if __name__ == '__main__':
 
         opcion= input("Seleccione una opcion \n")
         if opcion== 'c':
-            """  Equipo: xxxxxxxxxxxxxxxx
-                Fecha Goles a Favor Goles en Contra Diferencia de Goles Puntos
-                xx/xx/xxxx xx xx xx xx
-                xx/xx/xxxx xx xx xx xx
-                -------------------------------------------------------------------------------------------------------
-                Totales: xx xx xx xx """
+           
             nombre = input("Ingrese el nombre del equipo \n")
             indice= gestorEquipo.buscarNombre(nombre)
             if indice != None:
+
                 pass
             else:
                 print("no se encontro")
@@ -83,8 +79,11 @@ if __name__ == '__main__':
             print("Tabla actualizada")
 
         if opcion== 'e':
+
             print("Tabla ordenada")
         if opcion== 'f':
-            print("Tabla almacenada")
+          
+            print("Ordenar tabla y almacenar en archivo .csv")
+            gestorEquipo.ordenarTabla()
         if opcion== 'g':
             break

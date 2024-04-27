@@ -29,3 +29,18 @@ class GestorEquipo:
             else:
                 indice+=1
         return valorDeRetorno
+    
+    def generarListador(self):
+        pass
+            
+    def __gt__(self, other):
+        if self.__puntos == other.__puntos:
+            if self.__diferenciaGoles == other.__diferenciaGoles:
+                if self.__golesAFavor == other.__golesAFavor:
+                    return True
+                else:
+                    return self.__golesAFavor > other.__golesAFavor
+            else:
+                return self.__diferenciaGoles > other.__diferenciaGoles
+        else:
+            return self.__puntos > other.__puntos

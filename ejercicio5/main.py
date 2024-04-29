@@ -67,7 +67,6 @@ if __name__ == '__main__':
 
         opcion= input("Seleccione una opcion \n")
         if opcion== 'c':
-           
             nombre = input("Ingrese el nombre del equipo \n")
             indice= gestorEquipo.buscarNombre(nombre)
             if indice != None:

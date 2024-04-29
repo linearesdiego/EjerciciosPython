@@ -43,6 +43,7 @@ def test():
         print("2) Modificar tiempo real de entrega de un pedido")
         print("3) mostrar datos del conductor y tiempo promedio real de entrega de los pedidos que hizo")
         print("4) Generar listado para el pago de comisiones a los conductores de las motos")
+        print("5) ordenamiento por patentee y salir")
 
         opcion= input("Seleccione una opcion \n")
 
@@ -79,9 +80,12 @@ def test():
                 print("Tiempo promedio real de entrega de los pedidos que hizo: {}".format(gestorPedidos.tiempoPromedioReal(patente)))
             
         if opcion == "4":
-            gestorPedidos.generarListado()
+            gestorPedidos.generarListado(gestorPedidos)
         
+
         if opcion == "5":
+            gestorPedidos.ordenar()
+            gestorPedidos.mostrarObjeto()
             print("Saliendoooo!!")
             break
 if __name__ == "__main__":

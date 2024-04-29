@@ -57,7 +57,7 @@ class GestorPedido:
                 cantidad += 1
         return suma/cantidad
         
-    def generarListado(self):
+    def generarListado(self, pedidos):
         for i in range(len(self.__list)):
             print(f'Patente de Moto: {self.__list[i].getPatente()}')
             print(f'Conductor: {self.__list[i].getPatente()}')
@@ -65,12 +65,21 @@ class GestorPedido:
             print(f'Tiempo estimado: {self.__list[i].getTiempoEstimado()}')
             print(f'Tiempo real: {self.__list[i].getTiempoReal()}')
             print(f'Precio: {self.__list[i].getPrecio()}')
-            print(f'Total: {self.__list[i].getPrecio()}')
-            print(f'Comisión: {float(self.__list[i].getPrecio()) * 0.2}')
+            acum = 0
+            for j in range(len(pedidos.__list)):
+                if self.__list[i].getPatente() == pedidos.__list[j].getPatente():
+                    acum += pedidos.__list[j].getPrecio()
+            print(f'Total de pedidos: {acum}')
+            print(f'Comisión: {float(acum) * 0.2}')
             print("----------------------------------------------------")
     
         """ Ordenar de menor a mayor el Gestor de pedidos por número de patente, de modo que permita resolver eficientemente las búsquedas. Pare ello debe sobrecargar el operador < """
+
+
+    
+
     def ordenar(self):
         self.__list.sort()
-        print("Lista ordenada")
+        return self.__list
+        
         

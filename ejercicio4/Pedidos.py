@@ -34,3 +34,5 @@ class Pedido:
     def getTiempoReal(self):
         return self.__tiempoReal
     
+    def __lt__(self, otro):
+        return self.__patente < otro.__patente

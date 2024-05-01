@@ -46,3 +46,11 @@ class Equipo:
 
     def setPuntos(self, puntos):
         self.__puntos = puntos
+
+   
+    def __gt__(self, otro):
+        if self.__puntos == otro.getPuntos():
+            if self.__diferenciaGoles == otro.getDiferenciaGoles():
+                return self.__golesAFavor > otro.getGolesAFavor()
+            return self.__diferenciaGoles > otro.getDiferenciaGoles()
+        return self.__puntos > otro.getPuntos()

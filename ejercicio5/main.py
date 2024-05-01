@@ -55,34 +55,49 @@ if __name__ == '__main__':
 
     gestorFechaEquipo.cargarObjeto()
     gestorEquipo.cargarObjeto()
-    
-    while True:
+    opcion = ''
 
- 
+    while opcion != 'g':
         print("c. Leer el nombre de un equipo y obtener un listado \n")
         print("d. Actualizar la tabla de todos los equipos, con los resultados de las fechas disputadas. \n")
         print("e. Ordenar la tabla de posiciones de mayor a menor \n")
         print("f. Almacenar la tabla de posiciones ordenada en un archivo .csv. \n")
         print("g. Salir")
 
-        opcion= input("Seleccione una opcion \n")
-        if opcion== 'c':
-            nombre = input("Ingrese el nombre del equipo \n")
-            indice= gestorEquipo.buscarNombre(nombre)
-            if indice != None:
+        opcion = input("Seleccione una opcion \n")
 
-                pass
+        if opcion == 'c':
+            nombre = input("Ingrese el nombre del equipo \n")
+            indice = gestorEquipo.buscarNombre(nombre)
+            if indice != None:
+               gestorEquipo.generarLista(indice,gestorFechaEquipo.getFechaEquipo())
             else:
                 print("no se encontro")
-        if opcion== 'd':
-            print("Tabla actualizada")
 
-        if opcion== 'e':
+        if opcion == 'd':
+            """d. Actualizar la tabla de todos los equipos, con los resultados de las fechas disputadas."""
+            for fecha in gestorFechaEquipo.getFechaEquipo():
+                for equipo in gestorFechaEquipo.getEquipo():
+                    if fecha.getIdLocal() == equipo.getId():
+                        equipo.setGolesFavor(equipo.getGolesFavor() + fecha.getGolesLocal())
+                        equipo.setGolesContra(equipo.getGolesContra() + fecha.getGolesVisitante())
+                        if fecha.getGolesLocal() > fecha.getGolesVisitante():
+                            equipo.setPuntos(equipo.getPuntos() + 3)
+                        elif fecha.getGolesLocal() == fecha.getGolesVisitante():
+                            equipo.setPuntos(equipo.getPuntos() + 1)
+                    if fecha.getIdVisitante() == equipo.getId():
+                        equipo.setGolesFavor(equipo.getGolesFavor() + fecha.getGolesVisitante())
+                        equipo.setGolesContra(equipo.getGolesContra() + fecha.getGolesLocal())
+                        if fecha.getGolesVisitante() > fecha.getGolesLocal():
+                            equipo.setPuntos(equipo.getPuntos() + 3)
+                        elif fecha.getGolesVisitante() == fecha.getGolesLocal():
+                            equipo.setPuntos(equipo.getPuntos() + 1)
+            gestorEquipo.mostrar()
+                
 
-            print("Tabla ordenada")
-        if opcion== 'f':
+        if opcion == 'f':
           
             print("Ordenar tabla y almacenar en archivo .csv")
-            gestorEquipo.ordenarTabla()
-        if opcion== 'g':
-            break
+            gestorEquipo.ordenarTable()
+
+    print("¡Hasta luego!")

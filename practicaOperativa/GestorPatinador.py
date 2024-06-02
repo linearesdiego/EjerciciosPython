@@ -17,11 +17,12 @@ class GestorPatinador:
     def mostrar(self):
         for i in range(len(self.__listPatinadores)):
             print(self.__listPatinadores[i])
-
+    
     def listarPatinadores(self, estilo, edad,listEvaluaciones):
+       
         for patinador in self.__listPatinadores:
             for evaluacion in listEvaluaciones:
-                if patinador.getDni() == evaluacion.getDniPatinador() and evaluacion.getEstilo() == estilo and patinador.getEdad() == edad:
+                if patinador.getDni() == evaluacion.getDniPatinador() and evaluacion.getEstilo() == estilo:
                     print(patinador.getApellido(), patinador.getNombre(), patinador.getDni())
     
 

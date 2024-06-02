@@ -56,6 +56,7 @@ def test():
         if opcion == 1:
             estilo = input("Ingrese el estilo: ")
             edad = int(input("Ingrese la edad: "))
+            
             gestorPatinador.listarPatinadores(estilo, edad, gestorEvaluacion.getListaEvaluaciones())
         elif opcion == 2:
             gestorPatinador.patinadorMayorPuntaje(gestorEvaluacion.getListaEvaluaciones())

@@ -1,7 +1,8 @@
 """ De todos los vehículos se registra: marca, modelo, año de fabricación, capacidad de pasajeros,
 número de plazas, distancia recorrida y tarifa base. """
-
-class Vehiculo:
+from abc import ABC
+import abc
+class Vehiculo(ABC):
     __marca = str 
     __modelo = str
     __anio = str
@@ -42,3 +43,10 @@ class Vehiculo:
     
     def __str__(self):
         return f"Marca: {self.__marca}, Modelo: {self.__modelo}, Año: {self.__anio}, Capacidad de Pasajeros: {self.__capacidadPasajeros}, Número de Plazas: {self.__numeroPlazas}, Distancia Recorrida: {self.__distanciaRecorrida}, Tarifa Base: {self.__tarifaBase}"
+    
+    @abc.abstractmethod
+    def calcPorcentaje(self):
+        pass
+
+    def calcularTarifa(self):
+        return self.__tarifaBase * self.calcPorcentaje()

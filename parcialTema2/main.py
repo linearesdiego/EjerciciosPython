@@ -49,7 +49,8 @@ V;Kia;Carnival;2024;10;9;144.600;118000;minivan;
 A;Volvo;Piso elevado 15 Mts;2024;58;10;250.800;330000;turismo;ma�ana """
 
 from Lista import Lista
-
+from Vane import Vane
+from Autobus import Autobus
 def menu():
     print("1. Agregar vehículos a la colección")
     print("2. Dada una posición de la lista: Mostrar por pantalla qué tipo de vehículo se encuentra almacenado en dicha posición (usar la función isinstance()).")
@@ -65,7 +66,27 @@ def main():
     opcion = menu()
     while opcion != 5:
         if opcion == 1:
-            lista.mostrar()
+            marca = input('Ingrese la marca del vehiculo que desea agregar: ')
+            modelo = input('Ingrese el modelo: ')
+            año = int(input('Ingrese el año: '))
+            capacidad = int(input('Ingrese la capacidad: '))
+            plazas = int(input('Ingrese las plazas: '))
+            distRecorrida = float(input('Ingrese la distancia recorrida: '))
+            tarifaBase = float(input('Ingrese la tarifa base: '))
+            tipo = input('Ingrese el tipo del vehiculo (V/A): ')
+            if tipo.upper() == 'V':
+                tipoCarroceria = input('Ingrese el tipo de carroceria: ')
+                newVan = Vane(marca,modelo,año,capacidad,plazas,distRecorrida,tarifaBase,tipoCarroceria)
+                lista.agregar(newVan)
+                print('Van agregada con exito.')
+            elif tipo.upper() == 'A':
+                tipoServicio = input('Ingrese el tipo de servicio: ')
+                turno = input('Ingrese el turno: ')
+                newAutobus = Autobus(marca,modelo,año,capacidad,plazas,distRecorrida,tarifaBase,tipoServicio,turno)
+                lista.agregar(newAutobus)
+                print('Autobus agregado con exito.')
+            else:
+                print('Tipo de vehiculo incorrecto.')
         elif opcion == 2:
             posicion = int(input("Ingrese la posición: "))
             lista.obtener(posicion)

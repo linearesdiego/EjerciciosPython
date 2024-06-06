@@ -21,12 +21,13 @@ class Autobus(Vehiculo):
     horario nocturno y es de tipo turismo, caso contrario: tarifa base + 5% """
 
     def calcularTarifa(self):
-        tarifa = float(super().getTarifaBase())
-        if self.__turno == "noche" and self.__tipoServicio == "turismo":
-            tarifa += tarifa * 0.20
-        else:
-            tarifa += tarifa * 0.05
-        return tarifa
+       pass
     
     def __str__(self):
         return f"{super().__str__()}, Tipo de Servicio: {self.__tipoServicio}, Turno: {self.__turno}"
+    
+    def calcPorcentaje(self):
+        if self.__tipoServicio == 'turismo' and self.__turno == 'noche':
+            return 1.20
+        else:
+            return 1.05

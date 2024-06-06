@@ -15,12 +15,11 @@ class Vane(Vehiculo):
 
     """ Tarifa de Servicios de Vanes: tarifa base, menos el 10% de descuento, si el servicio se realiza en
 
-    una minivan, caso contrario: tarifa base+2.5%. """
+    una minivan, caso contrario: tarifa base+2.5%"""
 
-    def calcularTarifa(self):
-        tarifa = float(super().getTarifaBase())
-        if self.__tipoCarroceria == "minivan":
-            tarifa -= tarifa * 0.10
+    def calcPorcentaje(self):
+        if self.__tipoCarroceria == 'minivan':
+            return 0.9
         else:
-            tarifa += tarifa * 0.025
-        return tarifa
+            return 1.025
+        
